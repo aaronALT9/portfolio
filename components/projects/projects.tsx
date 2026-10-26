@@ -22,8 +22,8 @@ export function Projects() {
 
   return (
     <Section id="projects" index={2} label={ui.sections.projects} heading={ui.projects.heading}>
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div role="group" aria-label={ui.projects.filterLabel} className="flex flex-wrap gap-2">
+      <div className="project-toolbar flex flex-wrap items-center justify-between gap-4">
+        <div role="group" aria-label={ui.projects.filterLabel} className="project-filters flex flex-wrap gap-2">
           {filters.map((f) => (
             <button
               key={f.id}
@@ -31,21 +31,21 @@ export function Projects() {
               aria-pressed={filter === f.id}
               onClick={() => setFilter(f.id)}
               className={cn(
-                'rounded-full border border-border px-3 py-1 text-sm text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none',
-                filter === f.id && 'border-foreground bg-foreground text-background hover:text-background',
+                'rounded-full border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none',
+                filter === f.id && 'border-brand bg-brand text-background hover:text-background',
               )}
             >
               {f.label}
             </button>
           ))}
         </div>
-        <p aria-live="polite" className="font-mono text-xs text-muted-foreground">
+        <p aria-live="polite" className="font-mono text-[0.68rem] tracking-[0.16em] text-muted-foreground uppercase">
           {ui.projects.count(visible.length)}
         </p>
       </div>
 
       {visible.length > 0 ? (
-        <ul className="mt-8 grid gap-5 sm:grid-cols-2">
+        <ul className="mt-8 grid gap-5 md:grid-cols-2">
           {visible.map((project) => (
             <ProjectCard key={project.slug} project={project} onOpen={setSelected} />
           ))}

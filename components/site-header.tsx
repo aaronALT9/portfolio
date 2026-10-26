@@ -23,29 +23,34 @@ export function SiteHeader() {
   const links = sectionIds.map((id) => ({ id, label: ui.nav[id] }))
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md supports-backdrop-filter:bg-background/65">
-      <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-5 md:px-8">
-        <a
-          href="#top"
-          aria-label={ui.nav.home}
-          className="flex items-center gap-2.5 rounded-md focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
-        >
-          <Image
-            src="/az-logo.png"
-            alt="Aaron Zerrouk"
-            width={72}
-            height={48}
-            priority
-            className="site-logo h-14 w-[5.5rem] object-contain"
-          />
-        </a>
+    <header className="site-header sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md supports-backdrop-filter:bg-background/65">
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
+        <div className="flex items-center gap-3">
+          <div aria-hidden="true" className="brand-stamp">
+            <span>AZ</span>
+          </div>
+          <a
+            href="#top"
+            aria-label={ui.nav.home}
+            className="flex items-center gap-3 rounded-md focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
+          >
+            <Image
+              src="/az-logo.png"
+              alt="Aaron Zerrouk"
+              width={72}
+              height={48}
+              priority
+              className="site-logo h-14 w-[5.5rem] object-contain"
+            />
+          </a>
+        </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <LocaleToggle />
           <Button
             variant="ghost"
             size="icon-lg"
-            className="ml-2 size-12"
+            className="ml-1 size-12"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? ui.nav.close : ui.nav.menu}

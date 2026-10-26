@@ -1,9 +1,28 @@
 import { Analytics } from '@vercel/analytics/next'
+import { Cormorant_Garamond, JetBrains_Mono, Manrope } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import { Providers } from '@/components/providers'
 import { PortfolioEffects } from '@/components/portfolio-effects'
 import { siteUrl } from '@/lib/site'
 import './globals.css'
+
+const display = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-display',
+})
+
+const body = Manrope({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-body',
+})
+
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-mono',
+})
 
 const title = 'Aaron Zerrouk — Développeur Web · Étudiant BUT MMI'
 const description =
@@ -53,7 +72,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html
+      lang="fr"
+      suppressHydrationWarning
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
       <body className="font-sans antialiased">
         <PortfolioEffects />
         <Providers>{children}</Providers>

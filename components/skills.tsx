@@ -22,27 +22,31 @@ export function Skills() {
 
   return (
     <Section id="skills" index={4} label={ui.sections.skills} heading={ui.skills.heading}>
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
-        <span className="font-mono text-xs uppercase">{ui.skills.legend}</span>
+      <div className="skill-legend flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+        <span className="font-mono text-[0.65rem] tracking-[0.18em] uppercase">{ui.skills.legend}</span>
         {levelOrder.map((level) => (
-          <span key={level} className="flex items-center gap-2">
+          <span key={level} className="skill-legend-item flex items-center gap-2">
             <LevelDot level={level} />
             {ui.skills.levels[level]}
           </span>
         ))}
       </div>
 
-      <div className="mt-10 divide-y divide-border border-y border-border">
+      <div className="skill-mosaic mt-10">
         {skills.map((group) => (
-          <div key={group.group} className="reveal grid gap-4 py-6 md:grid-cols-[12rem_1fr]">
-            <h3 className="font-medium">{ui.skills.groups[group.group]}</h3>
-            <ul className="flex flex-wrap gap-2">
+          <div key={group.group} className="skill-group reveal">
+            <h3 className="skill-group-title">{ui.skills.groups[group.group]}</h3>
+            <ul className="skill-list">
               {[...group.items]
                 .sort((a, b) => levelOrder.indexOf(a.level) - levelOrder.indexOf(b.level))
                 .map((skill) => (
                   <li
                     key={skill.name}
-                    className="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-sm"
+                    className={cn('skill-item', {
+                      'skill-item-solid': skill.level === 'solid',
+                      'skill-item-comfortable': skill.level === 'comfortable',
+                      'skill-item-learning': skill.level === 'learning',
+                    })}
                   >
                     <LevelDot level={skill.level} />
                     {skill.name}
