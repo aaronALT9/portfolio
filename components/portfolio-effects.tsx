@@ -85,8 +85,6 @@ export function PortfolioEffects() {
 
   return (
     <>
-      <div className="portfolio-background" aria-hidden="true">
-      </div>
       <div className="cursor-dot" aria-hidden="true" />
       <div className="cursor-follower" aria-hidden="true" />
       <div className="cursor-orbital" aria-hidden="true" />

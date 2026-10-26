@@ -519,8 +519,7 @@
 
 .cursor-dot,
 .cursor-follower,
-.cursor-orbital,
-.cursor-trail {
+.cursor-orbital {
   position: fixed;
   pointer-events: none;
 }
@@ -562,6 +561,8 @@
 }
 
 .cursor-trail {
+  position: fixed;
+  pointer-events: none;
   z-index: 9997;
   width: 5px;
   height: 5px;
@@ -608,50 +609,12 @@
   }
 }
 
-.brand-stamp {
-  position: relative;
-  display: inline-grid;
-  place-items: center;
-  width: 2.45rem;
-  height: 2.45rem;
-  border: 1px solid rgba(241, 240, 232, 0.2);
-  background: rgba(213, 255, 63, 0.08);
-  box-shadow: inset 0 0 0 1px rgba(213, 255, 63, 0.12);
-}
-
-.brand-stamp::before,
-.brand-stamp::after {
-  position: absolute;
-  content: '';
-  inset: 0.3rem;
-  border: 1px solid rgba(255, 115, 92, 0.45);
-}
-
-.brand-stamp::after {
-  inset: 0.62rem;
-  border-color: rgba(213, 255, 63, 0.65);
-}
-
-.brand-stamp span {
-  position: relative;
-  z-index: 1;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  font-weight: 700;
-  color: var(--foreground);
-}
-
 .site-logo {
   filter: drop-shadow(0 10px 24px rgba(213, 255, 63, 0.08));
 }
 
 .hero-shell {
   position: relative;
-}
-
-.status-pill {
-  box-shadow: inset 0 0 0 1px rgba(241, 240, 232, 0.08);
 }
 
 .hero-signature {
@@ -724,14 +687,6 @@
   color: var(--brand);
 }
 
-.hero-signature-image {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  width: 100%;
-  min-height: 0;
-}
-
 .hero-signature-meta {
   justify-content: space-between;
   border-top: 1px solid rgba(241, 240, 232, 0.12);
@@ -745,70 +700,6 @@
     margin: 0 auto;
     transform: rotate(0deg);
   }
-}
-
-[data-slot='button']:not(.portfolio-project-card):not(:disabled):hover,
-a[class*='bg-primary']:hover,
-a[class*='bg-secondary']:hover {
-  border-color: rgba(255, 51, 0, 0.55);
-  box-shadow:
-    0 12px 40px rgba(255, 51, 0, 0.32),
-    0 6px 20px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateY(-4px);
-}
-
-[data-slot='button'].bg-primary:hover,
-a[class*='bg-primary']:hover {
-  background-color: var(--brand);
-  color: var(--brand-foreground);
-}
-
-[data-slot='button'].bg-secondary:hover,
-a[class*='bg-secondary']:hover {
-  background-color: rgba(255, 51, 0, 0.16);
-  color: var(--brand);
-}
-
-.menu-panel a {
-  position: relative;
-  overflow: hidden;
-  transition:
-    color 250ms ease,
-    background-color 250ms ease,
-    padding-left 350ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.menu-panel a::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 0.3rem;
-  height: 0;
-  border-radius: 999px;
-  background: var(--brand);
-  box-shadow: 0 0 12px rgba(255, 51, 0, 0.8);
-  content: '';
-  transform: translateY(-50%);
-  transition: height 250ms ease;
-}
-
-.menu-panel a:hover,
-.menu-panel a:focus-visible {
-  padding-left: 1.1rem;
-  color: var(--brand);
-  background: rgba(255, 51, 0, 0.08);
-  transform: translateX(0.25rem);
-}
-
-.menu-panel a:hover::before,
-.menu-panel a:focus-visible::before {
-  height: 1.6rem;
-}
-
-.portfolio-project-cover {
-  background: #11162f;
 }
 
 .burger-flip {
@@ -887,31 +778,9 @@ a[class*='bg-secondary']:hover {
   transition: transform 400ms 350ms;
 }
 
-@keyframes blobMoveOne {
-  50% { transform: translate(5%, -10%) scale(1.1); }
-}
-
-@keyframes blobMoveTwo {
-  50% { transform: translate(-8%, 8%) scale(0.95); }
-}
-
-@keyframes blobMoveThree {
-  50% { transform: translate(6%, 2%) scale(1.05); }
-}
-
-@keyframes ambientLight {
-  from { transform: translate3d(-3%, -1%, 0) scale(1); }
-  to { transform: translate3d(4%, 3%, 0) scale(1.08); }
-}
-
 @keyframes backgroundDrift {
   from { background-position: 0 0; }
   to { background-position: 220px 220px; }
-}
-
-@keyframes shapeBreath {
-  from { opacity: 0.35; }
-  to { opacity: 0.58; }
 }
 
 @keyframes trailFade {
@@ -919,17 +788,10 @@ a[class*='bg-secondary']:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-blob,
-  .portfolio-shape,
   body::before,
   body::after,
   .burger-flip-line,
   .burger-flip-x,
-  .portfolio-project-card,
-  .portfolio-project-card::after,
-  .portfolio-project-cover::after,
-  .portfolio-project-card .portfolio-project-cover img,
-  .portfolio-project-card h3,
   button,
   [data-slot='button'],
   .menu-panel,
@@ -944,6 +806,8 @@ a[class*='bg-secondary']:hover {
 
 .menu-panel {
   --menu-origin-x: calc((100% + min(100%, 72rem)) / 2 - 3.5rem);
+  border-color: rgba(241, 240, 232, 0.18);
+  background: rgba(17, 19, 15, 0.97);
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -1026,79 +890,14 @@ section[id] {
   border-color: rgba(241, 240, 232, 0.18);
 }
 
-#top h1 {
-  max-width: 12ch;
-  font-size: clamp(4rem, 11vw, 9.5rem);
-  line-height: 0.88;
-  letter-spacing: -0.075em;
-}
-
-#top h1 .text-brand {
-  color: #ff735c;
-}
-
-.portfolio-project-card {
-  border-radius: 0;
-  border-right: 0;
-  border-left: 0;
-  background: transparent;
-  box-shadow: none;
-  transition: background-color 350ms ease, border-color 350ms ease, transform 350ms ease;
-}
-
-.portfolio-project-card:hover {
-  border-color: var(--brand);
-  background: rgba(213, 255, 63, 0.045);
-  box-shadow: none;
-  transform: translateY(-3px);
-}
-
-.portfolio-project-card::after {
-  border-radius: 0;
-  border-color: transparent;
-  box-shadow: none;
-}
-
-.portfolio-project-card:hover::after {
-  border-color: rgba(213, 255, 63, 0.22);
-  box-shadow: inset 0 0 0 1px rgba(213, 255, 63, 0.08);
-}
-
-.portfolio-project-card h3 {
-  font-size: 1.45rem;
-}
-
-.portfolio-project-card:hover h3 {
-  color: var(--brand);
-}
-
-.portfolio-project-card .portfolio-project-cover {
-  border-color: rgba(241, 240, 232, 0.18);
-  filter: grayscale(0.15);
-  transition: filter 500ms ease;
-}
-
-.portfolio-project-card:hover .portfolio-project-cover {
-  filter: grayscale(0);
-}
-
-.portfolio-project-card li {
-  border-radius: 0.15rem;
-}
-
-.menu-panel {
-  border-color: rgba(241, 240, 232, 0.18);
-  background: rgba(17, 19, 15, 0.97);
-}
-
 .menu-panel a:hover,
 .menu-panel a:focus-visible {
   color: var(--brand);
   background: rgba(213, 255, 63, 0.08);
 }
 
-button:not(.portfolio-project-card):not(:disabled):hover,
-[data-slot='button']:not(.portfolio-project-card):not(:disabled):hover,
+button:not(:disabled):hover,
+[data-slot='button']:not(:disabled):hover,
 a[class*='bg-primary']:hover,
 a[class*='bg-secondary']:hover {
   border-color: var(--brand);
