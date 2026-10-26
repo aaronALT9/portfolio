@@ -29,6 +29,8 @@ const fr = {
     signatureRole: 'Web designer / dev',
     signatureProgram: 'MMI / web',
     location: 'Le Puy-en-Velay',
+    animatedLine: 'Interfaces nettes, code vivant.',
+    marquee: 'Design · Développement · Accessibilité · Curiosité',
   },
   sections: {
     about: 'À propos',
@@ -58,6 +60,7 @@ const fr = {
     placeholder: 'Capture à venir',
     prev: 'Image précédente',
     next: 'Image suivante',
+    view: 'Voir',
     close: 'Fermer',
     count: (n: number) => `${n} projet${n > 1 ? 's' : ''}`,
   },
@@ -146,6 +149,8 @@ const en: Dictionary = {
     signatureRole: 'Web designer / developer',
     signatureProgram: 'MMI / web',
     location: 'Le Puy-en-Velay',
+    animatedLine: 'Thoughtful interfaces, living code.',
+    marquee: 'Design · Development · Accessibility · Curiosity',
   },
   sections: {
     about: 'About',
@@ -175,6 +180,7 @@ const en: Dictionary = {
     placeholder: 'Screenshot coming soon',
     prev: 'Previous image',
     next: 'Next image',
+    view: 'View',
     close: 'Close',
     count: (n: number) => `${n} project${n > 1 ? 's' : ''}`,
   },

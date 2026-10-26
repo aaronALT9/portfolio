@@ -14,7 +14,7 @@ export function Contact() {
   return (
     <Section id="contact" index={6} label={ui.sections.contact} heading={ui.contact.heading} variant="contact">
       <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
-        <div className="contact-panel reveal space-y-8">
+        <div className="contact-panel reveal reveal-left space-y-8">
           <p className="max-w-md leading-relaxed text-pretty text-muted-foreground">{ui.contact.pitch}</p>
 
           <div className="space-y-2">
@@ -48,7 +48,7 @@ export function Contact() {
           </a>
         </div>
 
-        <div className="contact-form-shell reveal">
+        <div className="contact-form-shell reveal reveal-scale">
           <ContactForm />
         </div>
       </div>

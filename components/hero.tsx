@@ -53,6 +53,11 @@ export function Hero() {
               {ui.hero.pitch}
             </p>
 
+            <p className="hero-animated-line">
+              <ArrowUpRightIcon aria-hidden="true" className="size-4" />
+              {ui.hero.animatedLine}
+            </p>
+
             <div className={cn('mt-10 flex flex-wrap gap-3', enter, 'motion-safe:delay-300')}>
               <a href="#projects" className={cn(buttonVariants({ size: 'lg' }), 'h-10 px-4')}>
                 {ui.hero.projects}
@@ -79,6 +84,10 @@ export function Hero() {
               <span className="hero-signature-mark" aria-hidden="true">
                 AZ
               </span>
+            </div>
+
+            <div className="hero-signature-monogram" aria-hidden="true">
+              AZ<span>.</span>
             </div>
 
             <div className="hero-signature-meta">
@@ -122,6 +131,18 @@ export function Hero() {
             </dd>
           </div>
         </dl>
+
+        <div className="site-marquee" role="img" aria-label={ui.hero.marquee}>
+          <div className="site-marquee-track" aria-hidden="true">
+            {[0, 1].map((group) => (
+              <div key={group} className="site-marquee-group">
+                {[0, 1].map((repeat) => (
+                  <span key={repeat}>{ui.hero.marquee}</span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

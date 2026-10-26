@@ -10,13 +10,13 @@ export function About() {
   return (
     <Section id="about" index={1} label={ui.sections.about} heading={ui.about.heading} variant="editorial">
       <div className="about-layout grid gap-8 xl:grid-cols-[1.2fr_0.8fr]">
-        <div className="about-copy reveal max-w-2xl space-y-5 text-base leading-relaxed text-pretty text-muted-foreground md:text-lg">
+        <div className="about-copy reveal reveal-left max-w-2xl space-y-5 text-base leading-relaxed text-pretty text-muted-foreground md:text-lg">
           {about.bio.map((paragraph) => (
             <p key={paragraph.fr}>{t(paragraph)}</p>
           ))}
         </div>
 
-        <aside className="about-strengths reveal" aria-label={ui.about.strengthsLabel}>
+        <aside className="about-strengths reveal reveal-scale" aria-label={ui.about.strengthsLabel}>
           <p className="about-stamp">{ui.about.stampLabel}</p>
           <ul className="about-strength-list">
             {about.strengths.map((strength) => (

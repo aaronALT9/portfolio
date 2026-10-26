@@ -78,8 +78,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
       <body className="font-sans antialiased">
-        <PortfolioEffects />
-        <Providers>{children}</Providers>
+        <Providers>
+          <PortfolioEffects />
+          {children}
+        </Providers>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

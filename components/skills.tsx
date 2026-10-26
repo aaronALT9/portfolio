@@ -22,7 +22,7 @@ export function Skills() {
 
       <div className="skill-mosaic mt-10">
         {skills.map((group) => (
-          <div key={group.group} className="skill-group reveal">
+          <div key={group.group} className="skill-group reveal reveal-scale">
             <h3 className="skill-group-title">{ui.skills.groups[group.group]}</h3>
             <ul className="skill-list">
               {[...group.items]

@@ -12,7 +12,13 @@ export function ProjectCard({ project, index, onOpen }: Props) {
   const { t, ui } = useLocale()
 
   return (
-    <li className={cn('project-case-study reveal', index % 2 === 1 && 'project-case-study-reverse')}>
+    <li
+      className={cn(
+        'project-case-study reveal',
+        index % 2 === 0 ? 'reveal-left' : 'reveal-scale',
+        index % 2 === 1 && 'project-case-study-reverse',
+      )}
+    >
       <article className="project-case group">
         <div className="project-case-visual">
           <ProjectCover
@@ -29,7 +35,7 @@ export function ProjectCard({ project, index, onOpen }: Props) {
             className="project-case-trigger focus-visible:ring-3 focus-visible:ring-inset focus-visible:ring-ring focus-visible:outline-none"
           >
             <span className="project-case-view" aria-hidden="true">
-              {ui.projects.open}
+              {ui.projects.view}
               <ArrowUpRightIcon className="size-4" />
             </span>
           </button>

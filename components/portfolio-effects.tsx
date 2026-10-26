@@ -1,15 +1,23 @@
 'use client'
 
 import { useEffect } from 'react'
+import { useLocale } from '@/lib/i18n'
 
 export function PortfolioEffects() {
+  const { ui } = useLocale()
+
   useEffect(() => {
-    if (!window.matchMedia('(pointer: fine)').matches) return
+    const pointerFine = window.matchMedia('(pointer: fine)').matches
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!pointerFine || reducedMotion) {
+      return
+    }
 
     const dot = document.querySelector<HTMLElement>('.cursor-dot')
     const follower = document.querySelector<HTMLElement>('.cursor-follower')
     const orbital = document.querySelector<HTMLElement>('.cursor-orbital')
-    if (!dot || !follower || !orbital) return
+    const label = document.querySelector<HTMLElement>('.cursor-label')
+    if (!dot || !follower || !orbital || !label) return
 
     let mouseX = 0
     let mouseY = 0
@@ -20,12 +28,15 @@ export function PortfolioEffects() {
     let trailCounter = 0
 
     const updateCursorState = () => {
-      const interactive = document.elementFromPoint(mouseX, mouseY)?.closest('a, button, input, textarea, [role="button"]')
+      const target = document.elementFromPoint(mouseX, mouseY)
+      const interactive = target?.closest('a, button, input, textarea, [role="button"]')
+      const onProject = target?.closest('.project-case')
       const active = !!interactive
       document.body.classList.toggle('cursor-active', active)
       dot.classList.toggle('is-active', active)
       follower.classList.toggle('is-active', active)
       orbital.classList.toggle('is-active', active)
+      label.classList.toggle('is-visible', !!onProject)
     }
 
     const handleMove = (event: MouseEvent) => {
@@ -37,6 +48,8 @@ export function PortfolioEffects() {
       dot.style.opacity = '1'
       follower.style.opacity = '0.45'
       orbital.style.opacity = '0.8'
+      label.style.left = `${mouseX + 80 > window.innerWidth ? mouseX - 56 : mouseX + 22}px`
+      label.style.top = `${mouseY + 42 > window.innerHeight ? mouseY - 38 : mouseY + 18}px`
       updateCursorState()
 
       if (trailCounter++ % 2 === 0) {
@@ -70,6 +83,7 @@ export function PortfolioEffects() {
       dot.style.opacity = '0'
       follower.style.opacity = '0'
       orbital.style.opacity = '0'
+      label.classList.remove('is-visible')
     }
 
     document.addEventListener('mousemove', handleMove)
@@ -88,6 +102,9 @@ export function PortfolioEffects() {
       <div className="cursor-dot" aria-hidden="true" />
       <div className="cursor-follower" aria-hidden="true" />
       <div className="cursor-orbital" aria-hidden="true" />
+      <span className="cursor-label" aria-hidden="true">
+        {ui.projects.view}
+      </span>
     </>
   )
 }

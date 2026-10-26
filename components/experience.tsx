@@ -10,8 +10,8 @@ export function Experience() {
   return (
     <Section id="experience" index={3} label={ui.sections.experience} heading={ui.experience.heading} variant="timeline">
       <ol className="experience-grid">
-        {experiences.map((job) => (
-          <li key={job.company} className="experience-item reveal">
+        {experiences.map((job, index) => (
+          <li key={job.company} className={`experience-item reveal ${index % 2 === 0 ? 'reveal-left' : 'reveal-scale'}`}>
             <div className="experience-item-head">
               <p className="font-mono text-[0.64rem] tracking-[0.18em] text-muted-foreground uppercase">
                 <time>{t(job.period)}</time>

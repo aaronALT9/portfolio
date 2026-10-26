@@ -12,7 +12,7 @@ export function Education() {
       <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
         <ol className="divide-y divide-border border-y border-border">
           {education.map((item) => (
-            <li key={item.title} className="reveal grid gap-1 py-5 sm:grid-cols-[7.5rem_1fr] sm:gap-6">
+            <li key={item.title} className="reveal reveal-left grid gap-1 py-5 sm:grid-cols-[7.5rem_1fr] sm:gap-6">
               <p className="font-mono text-xs text-muted-foreground sm:pt-1">
                 {t(item.period)}
                 {item.current && <span className="text-brand">{ui.education.now}</span>}
