@@ -905,8 +905,8 @@ a[class*='bg-secondary']:hover {
 }
 
 @keyframes backgroundDrift {
-  from { background-position: 0% 20%; }
-  to { background-position: 100% 80%; }
+  from { background-position: 0 0; }
+  to { background-position: 220px 220px; }
 }
 
 @keyframes shapeBreath {
@@ -994,6 +994,10 @@ a[class*='bg-secondary']:hover {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  body::before {
+    animation: backgroundDrift 120s linear infinite;
+  }
+
   html {
     scroll-behavior: smooth;
   }
