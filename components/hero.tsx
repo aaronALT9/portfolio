@@ -21,7 +21,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top_right,black,transparent_60%)]"
       />
       <div className="relative mx-auto max-w-6xl px-5 pt-16 pb-20 md:px-8 md:pt-20 md:pb-28">
-        <div className="hero-shell grid items-end gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(280px,0.75fr)]">
+        <div className="hero-shell grid items-end gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
           <div>
             <h1
               id="hero-heading"

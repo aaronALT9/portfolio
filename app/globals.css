@@ -657,7 +657,7 @@
 .hero-signature {
   position: relative;
   display: flex;
-  min-height: 20rem;
+  min-height: 25rem;
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid rgba(241, 240, 232, 0.12);
@@ -740,8 +740,8 @@
 
 @media (max-width: 767px) {
   .hero-signature {
-    max-width: 22rem;
-    min-height: 16rem;
+    max-width: 24rem;
+    min-height: 19rem;
     margin: 0 auto;
     transform: rotate(0deg);
   }
