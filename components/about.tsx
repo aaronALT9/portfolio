@@ -8,7 +8,7 @@ export function About() {
   const { ui, t } = useLocale()
 
   return (
-    <Section id="about" index={1} label={ui.sections.about} heading={ui.about.heading}>
+    <Section id="about" index={1} label={ui.sections.about} heading={ui.about.heading} variant="editorial">
       <div className="about-layout grid gap-8 xl:grid-cols-[1.2fr_0.8fr]">
         <div className="about-copy reveal max-w-2xl space-y-5 text-base leading-relaxed text-pretty text-muted-foreground md:text-lg">
           {about.bio.map((paragraph) => (
@@ -16,20 +16,17 @@ export function About() {
           ))}
         </div>
 
-        <div className="about-collage reveal" aria-label={ui.about.strengthsLabel}>
-          <div className="about-collage-stamp">{ui.about.stampLabel}</div>
-          <div className="about-collage-stack">
-            {about.strengths.map((strength, i) => (
-              <article key={strength.title.fr} className={`about-strength-card about-strength-card-${i + 1}`}>
-                <span aria-hidden="true" className="font-mono text-[0.62rem] tracking-[0.18em] text-brand uppercase">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <p className="mt-4 text-lg font-semibold tracking-tight">{t(strength.title)}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(strength.detail)}</p>
-              </article>
+        <aside className="about-strengths reveal" aria-label={ui.about.strengthsLabel}>
+          <p className="about-stamp">{ui.about.stampLabel}</p>
+          <ul className="about-strength-list">
+            {about.strengths.map((strength) => (
+              <li key={strength.title.fr}>
+                <h3>{t(strength.title)}</h3>
+                <p>{t(strength.detail)}</p>
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </aside>
       </div>
     </Section>
   )

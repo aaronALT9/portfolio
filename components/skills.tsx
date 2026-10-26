@@ -3,30 +3,18 @@
 import { Section } from '@/components/section'
 import { skills, type Level } from '@/lib/content'
 import { useLocale } from '@/lib/i18n'
-import { cn } from '@/lib/utils'
 
 const levelOrder: Level[] = ['solid', 'comfortable', 'learning']
-
-const levelDot: Record<Level, string> = {
-  solid: 'bg-brand',
-  comfortable: 'border border-brand bg-brand/30',
-  learning: 'border border-dashed border-muted-foreground',
-}
-
-function LevelDot({ level }: { level: Level }) {
-  return <span aria-hidden="true" className={cn('size-2 shrink-0 rounded-full', levelDot[level])} />
-}
 
 export function Skills() {
   const { ui } = useLocale()
 
   return (
-    <Section id="skills" index={4} label={ui.sections.skills} heading={ui.skills.heading}>
+    <Section id="skills" index={4} label={ui.sections.skills} heading={ui.skills.heading} variant="mosaic">
       <div className="skill-legend flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
         <span className="font-mono text-[0.65rem] tracking-[0.18em] uppercase">{ui.skills.legend}</span>
         {levelOrder.map((level) => (
-          <span key={level} className="skill-legend-item flex items-center gap-2">
-            <LevelDot level={level} />
+          <span key={level} className="skill-legend-item">
             {ui.skills.levels[level]}
           </span>
         ))}
@@ -42,15 +30,10 @@ export function Skills() {
                 .map((skill) => (
                   <li
                     key={skill.name}
-                    className={cn('skill-item', {
-                      'skill-item-solid': skill.level === 'solid',
-                      'skill-item-comfortable': skill.level === 'comfortable',
-                      'skill-item-learning': skill.level === 'learning',
-                    })}
+                    className={`skill-item skill-item-${skill.level}`}
                   >
-                    <LevelDot level={skill.level} />
                     {skill.name}
-                    <span className="sr-only">— {ui.skills.levels[skill.level]}</span>
+                    <span className="skill-level">{ui.skills.levels[skill.level]}</span>
                   </li>
                 ))}
             </ul>

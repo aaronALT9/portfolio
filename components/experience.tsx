@@ -8,7 +8,7 @@ export function Experience() {
   const { t, ui } = useLocale()
 
   return (
-    <Section id="experience" index={3} label={ui.sections.experience} heading={ui.experience.heading}>
+    <Section id="experience" index={3} label={ui.sections.experience} heading={ui.experience.heading} variant="timeline">
       <ol className="experience-grid">
         {experiences.map((job) => (
           <li key={job.company} className="experience-item reveal">

@@ -8,7 +8,7 @@ export function Education() {
   const { t, ui } = useLocale()
 
   return (
-    <Section id="education" index={5} label={ui.sections.education} heading={ui.education.heading}>
+    <Section id="education" index={5} label={ui.sections.education} heading={ui.education.heading} variant="archive">
       <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
         <ol className="divide-y divide-border border-y border-border">
           {education.map((item) => (

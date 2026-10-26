@@ -21,7 +21,7 @@ export function Projects() {
   const filters = [{ id: 'all' as const, label: ui.projects.all }, ...categories.map((c) => ({ id: c.id, label: t(c.label) }))]
 
   return (
-    <Section id="projects" index={2} label={ui.sections.projects} heading={ui.projects.heading}>
+    <Section id="projects" index={2} label={ui.sections.projects} heading={ui.projects.heading} variant="showcase">
       <div className="project-toolbar flex flex-wrap items-center justify-between gap-4">
         <div role="group" aria-label={ui.projects.filterLabel} className="project-filters flex flex-wrap gap-2">
           {filters.map((f) => (
@@ -45,9 +45,9 @@ export function Projects() {
       </div>
 
       {visible.length > 0 ? (
-        <ul className="mt-8 grid gap-5 md:grid-cols-2">
-          {visible.map((project) => (
-            <ProjectCard key={project.slug} project={project} onOpen={setSelected} />
+        <ul className="project-case-list mt-10">
+          {visible.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} onOpen={setSelected} />
           ))}
         </ul>
       ) : (

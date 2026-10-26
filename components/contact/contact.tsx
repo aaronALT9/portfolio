@@ -12,7 +12,7 @@ export function Contact() {
   const { ui } = useLocale()
 
   return (
-    <Section id="contact" index={6} label={ui.sections.contact} heading={ui.contact.heading}>
+    <Section id="contact" index={6} label={ui.sections.contact} heading={ui.contact.heading} variant="contact">
       <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
         <div className="contact-panel reveal space-y-8">
           <p className="max-w-md leading-relaxed text-pretty text-muted-foreground">{ui.contact.pitch}</p>
