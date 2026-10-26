@@ -943,17 +943,20 @@ a[class*='bg-secondary']:hover {
 }
 
 .menu-panel {
+  --menu-origin-x: calc((100% + min(100%, 72rem)) / 2 - 3.5rem);
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transform: translateY(-1rem);
+  clip-path: circle(0 at var(--menu-origin-x) -2.5rem);
   pointer-events: none;
   visibility: hidden;
-  will-change: max-height, opacity, transform;
+  will-change: max-height, opacity, transform, clip-path;
   transition:
     max-height 650ms cubic-bezier(0.16, 1, 0.3, 1),
     opacity 350ms ease,
     transform 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 700ms cubic-bezier(0.16, 1, 0.3, 1),
     visibility 650ms;
 }
 
@@ -967,6 +970,7 @@ a[class*='bg-secondary']:hover {
   max-height: 40rem;
   opacity: 1;
   transform: translateY(0);
+  clip-path: circle(150vmax at var(--menu-origin-x) -2.5rem);
   pointer-events: auto;
   visibility: visible;
 }
@@ -982,6 +986,12 @@ a[class*='bg-secondary']:hover {
 .menu-panel[data-open='true'] li:nth-child(4) { transition-delay: 230ms; }
 .menu-panel[data-open='true'] li:nth-child(5) { transition-delay: 280ms; }
 .menu-panel[data-open='true'] li:nth-child(6) { transition-delay: 330ms; }
+
+@media (max-width: 767px) {
+  .menu-panel {
+    --menu-origin-x: calc(100% - 2.75rem);
+  }
+}
 
 @media (prefers-reduced-motion: no-preference) {
   html {
