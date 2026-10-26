@@ -1022,14 +1022,6 @@ a[class*='bg-secondary']:hover {
   }
 }
 
-/* Editorial workbench treatment */
-h1,
-h2,
-h3 {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: 500;
-}
-
 section[id] {
   border-color: rgba(241, 240, 232, 0.18);
 }
@@ -1124,4 +1116,3 @@ a[class*='bg-secondary']:hover {
   background-color: rgba(213, 255, 63, 0.14);
   color: var(--brand);
 }
-
