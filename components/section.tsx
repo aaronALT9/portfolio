@@ -6,7 +6,7 @@ type SectionProps = {
   label: string
   heading: string
   children: React.ReactNode
-  variant: 'editorial' | 'showcase' | 'timeline' | 'mosaic' | 'archive' | 'contact'
+  variant: 'classic' | 'editorial' | 'showcase' | 'timeline' | 'mosaic' | 'archive' | 'contact'
   className?: string
 }
 
