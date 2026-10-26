@@ -657,7 +657,7 @@
 .hero-signature {
   position: relative;
   display: flex;
-  min-height: 25rem;
+  min-height: 16rem;
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid rgba(241, 240, 232, 0.12);

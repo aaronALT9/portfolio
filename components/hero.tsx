@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { ArrowDownIcon, ArrowUpRightIcon, DownloadIcon } from 'lucide-react'
 import { GitHubIcon } from '@/components/icons'
 import { LocalTime } from '@/components/local-time'
@@ -84,10 +83,6 @@ export function Hero() {
               <span className="hero-signature-mark" aria-hidden="true">
                 AZ
               </span>
-            </div>
-
-            <div className="hero-signature-image">
-              <Image src="/denji.jpg" alt="Denji" fill sizes="(min-width: 1024px) 30vw, 80vw" className="object-contain" />
             </div>
 
             <div className="hero-signature-meta">
