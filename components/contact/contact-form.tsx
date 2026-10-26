@@ -25,7 +25,7 @@ export function ContactForm() {
   ]
 
   return (
-    <form action={action} noValidate className="space-y-5 rounded-xl border border-border bg-card p-5 md:p-6">
+    <form action={action} noValidate className="contact-form space-y-5 border border-border bg-card p-5 md:p-6">
       <div className="grid gap-5 sm:grid-cols-2">
         {fields.map((field) => (
           <div key={field.id} className="space-y-2">

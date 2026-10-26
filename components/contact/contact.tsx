@@ -13,12 +13,12 @@ export function Contact() {
 
   return (
     <Section id="contact" index={6} label={ui.sections.contact} heading={ui.contact.heading}>
-      <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
-        <div className="space-y-8">
+      <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="contact-panel reveal space-y-8">
           <p className="max-w-md leading-relaxed text-pretty text-muted-foreground">{ui.contact.pitch}</p>
 
           <div className="space-y-2">
-            <p className="font-mono text-xs tracking-wide text-muted-foreground uppercase">{ui.contact.direct}</p>
+            <p className="font-mono text-[0.64rem] tracking-[0.18em] text-muted-foreground uppercase">{ui.contact.direct}</p>
             <div className="flex flex-wrap items-center gap-2">
               <a
                 href={`mailto:${profile.email}`}
@@ -34,7 +34,7 @@ export function Contact() {
             href={profile.github}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 rounded-lg border border-border px-4 py-3 transition-colors hover:border-foreground/30"
+            className="group inline-flex items-center gap-3 border border-border bg-background px-4 py-3 transition-colors hover:border-foreground/30"
           >
             <GitHubIcon className="size-5" aria-hidden="true" />
             <span>
@@ -48,7 +48,9 @@ export function Contact() {
           </a>
         </div>
 
-        <ContactForm />
+        <div className="contact-form-shell reveal">
+          <ContactForm />
+        </div>
       </div>
     </Section>
   )

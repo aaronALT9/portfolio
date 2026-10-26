@@ -15,7 +15,6 @@ const fr = {
   theme: { toggle: 'Changer de thème', light: 'Clair', dark: 'Sombre' },
   lang: { toggle: 'Switch to English', short: 'EN' },
   hero: {
-    status: 'Disponible — alternance, stage, job étudiant',
     title: 'Étudiant en BUT MMI · Développeur Web',
     pitch:
       "Je conçois et développe des sites et applications web soignés, de l'interface à la mise en production. Je cherche une alternance, un stage ou un job étudiant pour continuer à apprendre sur de vrais projets.",
@@ -127,7 +126,6 @@ const en: Dictionary = {
   theme: { toggle: 'Toggle theme', light: 'Light', dark: 'Dark' },
   lang: { toggle: 'Passer en français', short: 'FR' },
   hero: {
-    status: 'Available — work-study, internship, student job',
     title: 'Multimedia & Web student · Web Developer',
     pitch:
       "I design and build careful websites and web apps, from the interface to production. I'm looking for a work-study position, an internship or a student job to keep learning on real projects.",

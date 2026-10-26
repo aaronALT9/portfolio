@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { ArrowDownIcon, ArrowUpRightIcon, DownloadIcon } from 'lucide-react'
 import { GitHubIcon } from '@/components/icons'
 import { LocalTime } from '@/components/local-time'
@@ -22,19 +23,6 @@ export function Hero() {
       <div className="relative mx-auto max-w-6xl px-5 pt-16 pb-20 md:px-8 md:pt-20 md:pb-28">
         <div className="hero-shell grid items-end gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(280px,0.75fr)]">
           <div>
-            <p
-              className={cn(
-                'status-pill inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-3 py-1.5 text-[0.68rem] font-medium tracking-[0.18em] text-muted-foreground uppercase',
-                enter,
-              )}
-            >
-              <span className="relative flex size-2.5">
-                <span className="absolute inline-flex size-full rounded-full bg-brand opacity-60 motion-safe:animate-ping" />
-                <span className="relative inline-flex size-2.5 rounded-full bg-brand" />
-              </span>
-              {ui.hero.status}
-            </p>
-
             <h1
               id="hero-heading"
               className={cn(
@@ -98,18 +86,13 @@ export function Hero() {
               </span>
             </div>
 
-            <svg viewBox="0 0 340 340" aria-hidden="true" className="hero-signature-art">
-              <path d="M54 218c32-68 92-103 160-99 35 2 65 21 86 53" />
-              <path d="M84 235c22-12 42-16 63-13 30 4 56 21 77 46" />
-              <path d="M38 142c44-56 102-84 169-84 50 0 94 17 128 52" />
-              <path d="M113 87l40 99 42-116 39 109" />
-              <circle cx="246" cy="115" r="10" />
-              <circle cx="93" cy="255" r="8" />
-            </svg>
+            <div className="hero-signature-image">
+              <Image src="/denji.jpg" alt="Denji" fill sizes="(min-width: 1024px) 30vw, 80vw" className="object-contain" />
+            </div>
 
             <div className="hero-signature-meta">
               <span>MMI</span>
-              <span>Clermont</span>
+              <span>Le Puy-en-Velay</span>
             </div>
           </aside>
         </div>

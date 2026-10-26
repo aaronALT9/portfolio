@@ -26,9 +26,6 @@ export function SiteHeader() {
     <header className="site-header sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md supports-backdrop-filter:bg-background/65">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <div className="flex items-center gap-3">
-          <div aria-hidden="true" className="brand-stamp">
-            <span>AZ</span>
-          </div>
           <a
             href="#top"
             aria-label={ui.nav.home}

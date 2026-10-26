@@ -19,14 +19,25 @@ export function PortfolioEffects() {
     let frame = 0
     let trailCounter = 0
 
+    const updateCursorState = () => {
+      const interactive = document.elementFromPoint(mouseX, mouseY)?.closest('a, button, input, textarea, [role="button"]')
+      const active = !!interactive
+      document.body.classList.toggle('cursor-active', active)
+      dot.classList.toggle('is-active', active)
+      follower.classList.toggle('is-active', active)
+      orbital.classList.toggle('is-active', active)
+    }
+
     const handleMove = (event: MouseEvent) => {
       mouseX = event.clientX
       mouseY = event.clientY
+      document.body.classList.add('cursor-ready')
       dot.style.left = `${mouseX}px`
       dot.style.top = `${mouseY}px`
       dot.style.opacity = '1'
       follower.style.opacity = '0.45'
       orbital.style.opacity = '0.8'
+      updateCursorState()
 
       if (trailCounter++ % 2 === 0) {
         const trail = document.createElement('span')
@@ -51,6 +62,11 @@ export function PortfolioEffects() {
     }
 
     const hide = () => {
+      document.body.classList.remove('cursor-ready')
+      document.body.classList.remove('cursor-active')
+      dot.classList.remove('is-active')
+      follower.classList.remove('is-active')
+      orbital.classList.remove('is-active')
       dot.style.opacity = '0'
       follower.style.opacity = '0'
       orbital.style.opacity = '0'

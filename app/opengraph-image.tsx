@@ -20,10 +20,6 @@ export default function OpengraphImage() {
           fontFamily: 'sans-serif',
         }}
       >
-          <span style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 26, color: '#8892b8' }}>
-            <span style={{ width: 14, height: 14, borderRadius: 999, background: '#ff3300' }} />
-            <span>Disponible — alternance, stage, job étudiant</span>
-          </span>
           <span style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             <span style={{ fontSize: 120, fontWeight: 700, letterSpacing: -5, lineHeight: 1 }}>
             Aaron Zerrouk<span style={{ color: '#e8764a' }}>.</span>
