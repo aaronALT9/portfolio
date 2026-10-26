@@ -24,6 +24,11 @@ const fr = {
     time: 'Heure en France',
     school: 'Formation',
     based: 'IUT Clermont Auvergne',
+    japaneseName: 'アーロン・ゼルーク',
+    signatureLabel: 'Signature de studio',
+    signatureRole: 'Web designer / dev',
+    signatureProgram: 'MMI / web',
+    location: 'Le Puy-en-Velay',
   },
   sections: {
     about: 'À propos',
@@ -36,6 +41,7 @@ const fr = {
   about: {
     heading: 'Du code, du design, et un peu de musique.',
     strengthsLabel: 'Qualités',
+    stampLabel: 'MMI / web',
   },
   projects: {
     heading: 'Une sélection de travaux, scolaires et professionnels.',
@@ -135,6 +141,11 @@ const en: Dictionary = {
     time: 'Time in France',
     school: 'Studying at',
     based: 'IUT Clermont Auvergne',
+    japaneseName: 'アーロン・ゼルーク',
+    signatureLabel: 'Studio signature',
+    signatureRole: 'Web designer / developer',
+    signatureProgram: 'MMI / web',
+    location: 'Le Puy-en-Velay',
   },
   sections: {
     about: 'About',
@@ -147,6 +158,7 @@ const en: Dictionary = {
   about: {
     heading: 'Code, design, and a bit of music.',
     strengthsLabel: 'Strengths',
+    stampLabel: 'MMI / web',
   },
   projects: {
     heading: 'A selection of school and professional work.',

@@ -17,7 +17,7 @@ export function About() {
         </div>
 
         <div className="about-collage reveal" aria-label={ui.about.strengthsLabel}>
-          <div className="about-collage-stamp">MMI / web</div>
+          <div className="about-collage-stamp">{ui.about.stampLabel}</div>
           <div className="about-collage-stack">
             {about.strengths.map((strength, i) => (
               <article key={strength.title.fr} className={`about-strength-card about-strength-card-${i + 1}`}>

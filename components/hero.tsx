@@ -39,7 +39,7 @@ export function Hero() {
             >
               {ui.hero.title}
               <span lang="ja" className="font-mono text-xs font-normal text-muted-foreground uppercase tracking-[0.2em]">
-                アーロン・ゼルーク
+                {ui.hero.japaneseName}
               </span>
             </p>
 
@@ -73,17 +73,17 @@ export function Hero() {
             </div>
           </div>
 
-          <aside className={cn('hero-signature', enter, 'motion-safe:delay-250')} aria-label="Signature de studio">
+          <aside className={cn('hero-signature', enter, 'motion-safe:delay-250')} aria-label={ui.hero.signatureLabel}>
             <div className="hero-signature-top">
-              <span className="hero-signature-label">Web designer / dev</span>
+              <span className="hero-signature-label">{ui.hero.signatureRole}</span>
               <span className="hero-signature-mark" aria-hidden="true">
                 AZ
               </span>
             </div>
 
             <div className="hero-signature-meta">
-              <span>MMI</span>
-              <span>Le Puy-en-Velay</span>
+              <span>{ui.hero.signatureProgram}</span>
+              <span>{ui.hero.location}</span>
             </div>
           </aside>
         </div>
