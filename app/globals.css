@@ -1138,8 +1138,8 @@ textarea[data-slot='textarea'],
 }
 
 .hero-portrait {
-  object-fit: cover;
-  object-position: center var(--hero-image-position-y, 0%);
+  object-fit: contain;
+  object-position: center center;
   opacity: 0.78;
   transform: scale(1.015);
   transition: transform 450ms ease-out;
@@ -1156,6 +1156,7 @@ textarea[data-slot='textarea'],
   inset: 0;
   content: '';
   background: linear-gradient(180deg, rgba(17, 19, 15, 0.44), transparent 24%, transparent 60%, #11130f 100%),
+    linear-gradient(90deg, rgba(17, 19, 15, 0.62) 0%, rgba(17, 19, 15, 0.22) 46%, transparent 66%),
     linear-gradient(90deg, #11130f 0%, transparent 23%, transparent 77%, #11130f 100%);
 }
 
@@ -1239,7 +1240,7 @@ textarea[data-slot='textarea'],
 .hero-japanese {
   position: absolute;
   top: 7.5rem;
-  right: -0.15rem;
+  right: 1.1rem;
   writing-mode: vertical-rl;
   color: var(--muted-foreground);
   font-family: var(--font-body);
@@ -1251,12 +1252,12 @@ textarea[data-slot='textarea'],
   grid-column: 1;
   grid-row: 3;
   align-self: end;
-  max-width: 33rem;
+  max-width: 23rem;
 }
 
 .hero-intro p:last-child {
   margin: 0.9rem 0 0;
-  max-width: 32rem;
+  max-width: 23rem;
   color: rgba(241, 240, 232, 0.78);
   font-size: 1rem;
   font-weight: 300;
@@ -1265,6 +1266,7 @@ textarea[data-slot='textarea'],
 }
 
 .hero-availability {
+  max-width: 22rem;
   margin: 0;
   color: var(--brand);
   font-family: var(--font-mono);
@@ -1301,6 +1303,8 @@ textarea[data-slot='textarea'],
   }
 
   .hero-portrait {
+    object-fit: cover;
+    object-position: center center;
     opacity: 0.7;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 7%, #000 57%, transparent 91%),
       linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
@@ -1324,10 +1328,6 @@ textarea[data-slot='textarea'],
     max-width: 100%;
     font-size: 2rem;
     line-height: 0.98;
-  }
-
-  .hero-title > span:first-child {
-    white-space: nowrap;
   }
 
   .hero-profile {

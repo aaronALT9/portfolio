@@ -17,7 +17,7 @@ const fr = {
   hero: {
     title: 'Étudiant en BUT MMI · Développeur Web',
     headlineLead: 'DÉVELOPPEUR WEB &',
-    headlineAccent: 'CRÉATIF',
+    headlineAccent: 'DESIGNER GRAPHIQUE',
     titleLineOne: 'Étudiant en BUT MMI',
     titleLineTwo: "Design d'interface",
     titleLineThree: 'Développement web',
@@ -144,7 +144,7 @@ const en: Dictionary = {
   hero: {
     title: 'Multimedia & Web student · Web Developer',
     headlineLead: 'WEB DEVELOPER &',
-    headlineAccent: 'CREATIVE',
+    headlineAccent: 'GRAPHIC DESIGNER',
     titleLineOne: 'Multimedia & Web student',
     titleLineTwo: 'Interface design',
     titleLineThree: 'Web development',
