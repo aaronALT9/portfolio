@@ -1,148 +1,90 @@
 'use client'
 
-import { ArrowDownIcon, ArrowUpRightIcon, DownloadIcon } from 'lucide-react'
-import { GitHubIcon } from '@/components/icons'
-import { LocalTime } from '@/components/local-time'
-import { buttonVariants } from '@/components/ui/button'
+import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { useLocale } from '@/lib/i18n'
-import { profile } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 const enter = 'motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700 motion-safe:fill-mode-both'
 
 export function Hero() {
   const { ui } = useLocale()
+  const heroRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const hero = heroRef.current
+    const image = hero?.querySelector<HTMLElement>('.hero-portrait')
+    if (!hero || !image) return
+
+    const finePointer = window.matchMedia('(pointer: fine)')
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (!finePointer.matches || reducedMotion.matches) return
+
+    const move = (event: PointerEvent) => {
+      if (event.pointerType === 'touch') return
+      const bounds = hero.getBoundingClientRect()
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5
+      image.style.transform = `translate3d(${x * -8}px, ${y * -6}px, 0) scale(1.025)`
+    }
+    const reset = () => {
+      image.style.transform = ''
+    }
+
+    hero.addEventListener('pointermove', move)
+    hero.addEventListener('pointerleave', reset)
+    return () => {
+      hero.removeEventListener('pointermove', move)
+      hero.removeEventListener('pointerleave', reset)
+    }
+  }, [])
+
+  const [animatedLead, animatedAccent] = ui.hero.animatedLine.split('|')
 
   return (
-    <section id="top" aria-labelledby="hero-heading" className="relative overflow-hidden">
-      <div className="relative mx-auto max-w-6xl px-5 pt-16 pb-20 md:px-8 md:pt-20 md:pb-28">
-        <div className="hero-shell grid items-end gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]">
-          <div>
-            <h1
-              id="hero-heading"
-              className={cn(
-                'mt-8 max-w-[10ch] text-5xl font-semibold tracking-[-0.08em] text-balance sm:text-6xl md:text-7xl xl:text-[8rem]',
-                enter,
-                'motion-safe:delay-100',
-              )}
-            >
-              Aaron
-              <span className="text-brand"> Zerrouk</span>
-            </h1>
+    <section ref={heroRef} id="top" aria-labelledby="hero-heading" className="hero-stage">
+      <div className="hero-image" aria-hidden="true">
+        <Image
+          className="hero-portrait"
+          src="/hero-portrait.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: 'cover' }}
+        />
+      </div>
 
-            <p
-              className={cn(
-                'mt-5 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-base font-medium text-foreground md:text-xl',
-                enter,
-                'motion-safe:delay-150',
-              )}
-            >
-              {ui.hero.title}
-              <span lang="ja" className="font-mono text-xs font-normal text-muted-foreground uppercase tracking-[0.2em]">
-                {ui.hero.japaneseName}
-              </span>
-            </p>
+      <div className="hero-layout">
+        <h1 id="hero-heading" className={cn('hero-title', enter, 'motion-safe:delay-100')}>
+          <span>{ui.hero.headlineLead}</span>
+          <span className="text-brand">{ui.hero.headlineAccent}</span>
+          <span className="sr-only">Aaron Zerrouk</span>
+        </h1>
 
-            <p
-              className={cn(
-                'mt-6 max-w-xl text-base leading-relaxed text-pretty text-muted-foreground md:text-lg',
-                enter,
-                'motion-safe:delay-200',
-              )}
-            >
-              {ui.hero.pitch}
-            </p>
-
-            <p className="hero-animated-line">
-              <ArrowUpRightIcon aria-hidden="true" className="size-4" />
-              {ui.hero.animatedLine}
-            </p>
-
-            <div className={cn('mt-10 flex flex-wrap gap-3', enter, 'motion-safe:delay-300')}>
-              <a href="#projects" className={cn(buttonVariants({ size: 'lg' }), 'h-10 px-4')}>
-                {ui.hero.projects}
-                <ArrowDownIcon data-icon="inline-end" />
-              </a>
-              <a
-                href={profile.cv}
-                download
-                className={cn(buttonVariants({ variant: 'outline', size: 'lg' }), 'h-10 px-4')}
-              >
-                <DownloadIcon data-icon="inline-start" />
-                {ui.hero.cv}
-              </a>
-              <a href="#contact" className={cn(buttonVariants({ variant: 'ghost', size: 'lg' }), 'h-10 px-4')}>
-                {ui.hero.contact}
-                <ArrowUpRightIcon data-icon="inline-end" />
-              </a>
-            </div>
+        <div className={cn('hero-profile', enter, 'motion-safe:delay-200')}>
+          <div className="hero-profile-copy">
+            <span>{ui.hero.titleLineOne}</span>
+            <span>{ui.hero.titleLineTwo}</span>
+            <span>{ui.hero.titleLineThree}</span>
           </div>
-
-          <aside className={cn('hero-signature', enter, 'motion-safe:delay-250')} aria-label={ui.hero.signatureLabel}>
-            <div className="hero-signature-top">
-              <span className="hero-signature-label">{ui.hero.signatureRole}</span>
-              <span className="hero-signature-mark" aria-hidden="true">
-                AZ
-              </span>
-            </div>
-
-            <div className="hero-signature-monogram" aria-hidden="true">
-              AZ<span>.</span>
-            </div>
-
-            <div className="hero-signature-meta">
-              <span>{ui.hero.signatureProgram}</span>
-              <span>{ui.hero.location}</span>
-            </div>
-          </aside>
+          <div className="hero-profile-squares" aria-hidden="true">
+            <i />
+            <i />
+          </div>
+          <span className="hero-profile-rule" aria-hidden="true" />
+          <span lang="ja" className="hero-japanese">アーロン・ゼルーク</span>
         </div>
 
-        <dl
-          className={cn(
-            'mt-16 grid max-w-2xl grid-cols-1 gap-6 border-t border-border pt-6 text-sm sm:grid-cols-3 md:mt-24',
-            enter,
-            'motion-safe:delay-500',
-          )}
-        >
-          <div>
-            <dt className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground uppercase">{ui.hero.time}</dt>
-            <dd className="mt-1 font-medium tabular-nums">
-              <LocalTime />
-            </dd>
-          </div>
-          <div>
-            <dt className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground uppercase">
-              {ui.hero.school}
-            </dt>
-            <dd className="mt-1 font-medium">{ui.hero.based}</dd>
-          </div>
-          <div>
-            <dt className="font-mono text-[0.65rem] tracking-[0.18em] text-muted-foreground uppercase">GitHub</dt>
-            <dd className="mt-1">
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 font-medium underline-offset-4 hover:underline"
-              >
-                <GitHubIcon className="size-3.5" />
-                {profile.githubHandle}
-              </a>
-            </dd>
-          </div>
-        </dl>
-
-        <div className="site-marquee" role="img" aria-label={ui.hero.marquee}>
-          <div className="site-marquee-track" aria-hidden="true">
-            {[0, 1].map((group) => (
-              <div key={group} className="site-marquee-group">
-                {[0, 1].map((repeat) => (
-                  <span key={repeat}>{ui.hero.marquee}</span>
-                ))}
-              </div>
-            ))}
-          </div>
+        <div className={cn('hero-intro', enter, 'motion-safe:delay-300')}>
+          <p className="hero-availability">{ui.hero.availability}</p>
+          <p>{ui.hero.pitch}</p>
         </div>
+
+        <p className={cn('hero-animated-line', enter, 'motion-safe:delay-500')}>
+          <span>{animatedLead}</span>
+          <span className="text-brand">{animatedAccent}</span>
+        </p>
       </div>
     </section>
   )

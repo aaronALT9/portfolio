@@ -16,8 +16,13 @@ const fr = {
   lang: { toggle: 'Switch to English', short: 'EN' },
   hero: {
     title: 'Étudiant en BUT MMI · Développeur Web',
-    pitch:
-      "Je conçois et développe des sites et applications web soignés, de l'interface à la mise en production. Je cherche une alternance, un stage ou un job étudiant pour continuer à apprendre sur de vrais projets.",
+    headlineLead: 'DÉVELOPPEUR WEB &',
+    headlineAccent: 'CRÉATIF',
+    titleLineOne: 'Étudiant en BUT MMI',
+    titleLineTwo: "Design d'interface",
+    titleLineThree: 'Développement web',
+    availability: 'ALTERNANCE, STAGE OU JOB ÉTUDIANT DISPONIBLE',
+    pitch: "Je conçois et développe des sites et applications web soignés, de l'interface à la mise en production.",
     projects: 'Voir mes projets',
     cv: 'Télécharger mon CV',
     contact: 'Me contacter',
@@ -29,7 +34,7 @@ const fr = {
     signatureRole: 'Web designer / dev',
     signatureProgram: 'MMI / web',
     location: 'Le Puy-en-Velay',
-    animatedLine: 'Interfaces nettes, code vivant.',
+    animatedLine: 'INTERFACES NETTES,|CODE VIVANT.',
     marquee: 'Design · Développement · Accessibilité · Curiosité',
   },
   sections: {
@@ -106,6 +111,8 @@ const fr = {
   },
   footer: {
     built: 'Conçu et développé par Aaron Zerrouk',
+    cv: 'Télécharger mon CV',
+    time: 'Heure en France',
     documents: 'Documents BTS SIO — Épreuve E5',
     docs: {
       bts1: 'Attestation de stage BTS1',
@@ -136,8 +143,13 @@ const en: Dictionary = {
   lang: { toggle: 'Passer en français', short: 'FR' },
   hero: {
     title: 'Multimedia & Web student · Web Developer',
-    pitch:
-      "I design and build careful websites and web apps, from the interface to production. I'm looking for a work-study position, an internship or a student job to keep learning on real projects.",
+    headlineLead: 'WEB DEVELOPER &',
+    headlineAccent: 'CREATIVE',
+    titleLineOne: 'Multimedia & Web student',
+    titleLineTwo: 'Interface design',
+    titleLineThree: 'Web development',
+    availability: 'AVAILABLE FOR WORK-STUDY, INTERNSHIP OR STUDENT JOB',
+    pitch: 'I design and build thoughtful websites and web apps, from interface to production.',
     projects: 'See my projects',
     cv: 'Download my resume',
     contact: 'Contact me',
@@ -149,7 +161,7 @@ const en: Dictionary = {
     signatureRole: 'Web designer / developer',
     signatureProgram: 'MMI / web',
     location: 'Le Puy-en-Velay',
-    animatedLine: 'Thoughtful interfaces, living code.',
+    animatedLine: 'THOUGHTFUL INTERFACES,|LIVING CODE.',
     marquee: 'Design · Development · Accessibility · Curiosity',
   },
   sections: {
@@ -226,6 +238,8 @@ const en: Dictionary = {
   },
   footer: {
     built: 'Designed and built by Aaron Zerrouk',
+    cv: 'Download my resume',
+    time: 'Time in France',
     documents: 'BTS SIO documents — E5 exam',
     docs: {
       bts1: 'Internship certificate — year 1',
