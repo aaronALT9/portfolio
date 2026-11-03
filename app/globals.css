@@ -1621,10 +1621,12 @@ textarea[data-slot='textarea'],
 @keyframes reveal {
   from {
     opacity: 0;
+    filter: blur(8px);
     transform: translateY(1.25rem);
   }
   to {
     opacity: 1;
+    filter: blur(0);
     transform: none;
   }
 }
@@ -1632,10 +1634,12 @@ textarea[data-slot='textarea'],
 @keyframes revealLeft {
   from {
     opacity: 0;
+    filter: blur(8px);
     transform: translateX(-1.5rem);
   }
   to {
     opacity: 1;
+    filter: blur(0);
     transform: none;
   }
 }
@@ -1643,10 +1647,12 @@ textarea[data-slot='textarea'],
 @keyframes revealScale {
   from {
     opacity: 0;
+    filter: blur(8px);
     transform: translateY(1rem) scale(0.96);
   }
   to {
     opacity: 1;
+    filter: blur(0);
     transform: none;
   }
 }
@@ -1670,6 +1676,7 @@ textarea[data-slot='textarea'],
   .reveal-scale {
     animation: none !important;
     opacity: 1;
+    filter: none;
     transform: none;
   }
 
