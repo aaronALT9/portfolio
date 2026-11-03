@@ -40,6 +40,7 @@ export function Hero() {
   }, [])
 
   const [animatedLead, animatedAccent] = ui.hero.animatedLine.split('|')
+  const [japaneseLead, japaneseName] = ui.hero.japaneseName.split('・')
 
   return (
     <section ref={heroRef} id="top" aria-labelledby="hero-heading" className="hero-stage">
@@ -62,18 +63,21 @@ export function Hero() {
         </h1>
 
         <div className={cn('hero-profile', enter, 'motion-safe:delay-200')}>
-          <div className="hero-profile-squares" aria-hidden="true">
-            <i />
-            <i />
-          </div>
           <div className="hero-profile-copy">
             <span>{ui.hero.titleLineOne}</span>
             <span>{ui.hero.titleLineTwo}</span>
             <span>{ui.hero.titleLineThree}</span>
           </div>
           <span className="hero-profile-rule" aria-hidden="true" />
-          <span lang="ja" className="hero-japanese">{ui.hero.japaneseName}</span>
         </div>
+
+        <span
+          lang="ja"
+          className={cn('hero-japanese', enter, 'motion-safe:delay-200')}
+        >
+          <span>{japaneseLead}・</span>
+          <span className="text-brand">{japaneseName}</span>
+        </span>
 
         <div className={cn('hero-intro', enter, 'motion-safe:delay-300')}>
           <p className="hero-availability">{ui.hero.availability}</p>
