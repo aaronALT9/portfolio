@@ -63,17 +63,17 @@ export function Hero() {
         </h1>
 
         <div className={cn('hero-profile', enter, 'motion-safe:delay-200')}>
+          <div className="hero-profile-squares" aria-hidden="true">
+            <i />
+            <i />
+          </div>
           <div className="hero-profile-copy">
             <span>{ui.hero.titleLineOne}</span>
             <span>{ui.hero.titleLineTwo}</span>
             <span>{ui.hero.titleLineThree}</span>
           </div>
-          <div className="hero-profile-squares" aria-hidden="true">
-            <i />
-            <i />
-          </div>
           <span className="hero-profile-rule" aria-hidden="true" />
-          <span lang="ja" className="hero-japanese">アーロン・ゼルーク</span>
+          <span lang="ja" className="hero-japanese">{ui.hero.japaneseName}</span>
         </div>
 
         <div className={cn('hero-intro', enter, 'motion-safe:delay-300')}>

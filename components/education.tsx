@@ -18,7 +18,7 @@ export function Education() {
                 {item.current && <span className="text-brand">{ui.education.now}</span>}
               </p>
               <div>
-                <h3 className="font-semibold tracking-tight">{item.title}</h3>
+                <h3>{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.school}</p>
                 <p className="mt-2 text-sm leading-relaxed text-pretty text-muted-foreground">{t(item.detail)}</p>
               </div>
@@ -28,7 +28,7 @@ export function Education() {
 
         <div>
           <h3 className="font-mono text-xs tracking-wide text-muted-foreground uppercase">{ui.education.languages}</h3>
-          <dl className="mt-4 divide-y divide-border rounded-xl border border-border bg-card">
+          <dl className="education-languages mt-4 divide-y divide-border rounded-sm border border-border bg-card">
             {languages.map((lang) => (
               <div key={lang.name.fr} className="flex items-baseline justify-between gap-4 px-4 py-3">
                 <dt className="flex items-center gap-3 font-medium">

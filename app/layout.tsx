@@ -1,15 +1,21 @@
 import { Analytics } from '@vercel/analytics/next'
-import { Cormorant_Garamond, JetBrains_Mono, Manrope } from 'next/font/google'
+import { Chakra_Petch, JetBrains_Mono, Manrope, Outfit } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import { Providers } from '@/components/providers'
 import { PortfolioEffects } from '@/components/portfolio-effects'
 import { siteUrl } from '@/lib/site'
 import './globals.css'
 
-const display = Cormorant_Garamond({
+const display = Outfit({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['200', '300', '400'],
   variable: '--font-display',
+})
+
+const tech = Chakra_Petch({
+  subsets: ['latin'],
+  weight: ['500', '600'],
+  variable: '--font-tech',
 })
 
 const body = Manrope({
@@ -75,7 +81,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="fr"
       suppressHydrationWarning
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      className={`${display.variable} ${tech.variable} ${body.variable} ${mono.variable}`}
     >
       <body className="font-sans antialiased">
         <Providers>

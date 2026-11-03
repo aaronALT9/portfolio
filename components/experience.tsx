@@ -19,9 +19,9 @@ export function Experience() {
               <span aria-hidden="true" className="experience-dot" />
             </div>
 
-            <h3 className="mt-5 text-2xl font-semibold tracking-tight md:text-3xl">
+            <h3 className="experience-title mt-5 text-2xl md:text-3xl">
               {job.company}
-              <span className="ml-2 font-normal text-muted-foreground">— {t(job.role)}</span>
+              <span className="ml-2 text-muted-foreground">— {t(job.role)}</span>
             </h3>
 
             <p className="mt-4 max-w-prose text-base leading-relaxed text-pretty text-muted-foreground">

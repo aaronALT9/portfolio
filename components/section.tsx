@@ -12,6 +12,9 @@ type SectionProps = {
 
 export function Section({ id, index, label, heading, children, variant, className }: SectionProps) {
   const headingId = `${id}-heading`
+  const headingWords = heading.trim().split(/\s+/)
+  const accentWord = headingWords.pop()
+
   return (
     <section
       id={id}
@@ -27,9 +30,9 @@ export function Section({ id, index, label, heading, children, variant, classNam
           </div>
           <h2
             id={headingId}
-            className="section-heading reveal text-4xl font-semibold tracking-[-0.05em] text-balance md:text-5xl xl:text-6xl"
+            className="section-heading reveal text-4xl font-light text-balance md:text-5xl xl:text-6xl"
           >
-            {heading}
+            {headingWords.join(' ')} <span className="text-brand">{accentWord}</span>
           </h2>
         </header>
         <div className="section-content">{children}</div>

@@ -50,7 +50,7 @@ export function ProjectDialog({ project, onOpenChange }: Props) {
                         project={project}
                         image={image}
                         sizes="(min-width: 768px) 700px, 90vw"
-                        className="aspect-video rounded-lg border border-border"
+                        className="aspect-video rounded-sm border border-border"
                       />
                     </CarouselItem>
                   ))}
@@ -63,7 +63,7 @@ export function ProjectDialog({ project, onOpenChange }: Props) {
                 project={project}
                 image={project.images[0]}
                 sizes="(min-width: 768px) 700px, 90vw"
-                className="aspect-video rounded-lg border border-border"
+                className="aspect-video rounded-sm border border-border"
               />
             )}
           </section>
@@ -90,7 +90,7 @@ export function ProjectDialog({ project, onOpenChange }: Props) {
             <div className="space-y-8">
               <section className="space-y-3">
                 <DetailHeading>{ui.projects.stack}</DetailHeading>
-                <dl className="divide-y divide-border rounded-lg border border-border">
+                <dl className="divide-y divide-border rounded-sm border border-border">
                   {project.stack.map((item) => (
                     <div key={item.name} className="px-3 py-2.5">
                       <dt className="text-sm font-medium">{item.name}</dt>
