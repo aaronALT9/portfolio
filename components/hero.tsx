@@ -25,7 +25,7 @@ export function Hero() {
       const bounds = hero.getBoundingClientRect()
       const x = (event.clientX - bounds.left) / bounds.width - 0.5
       const y = (event.clientY - bounds.top) / bounds.height - 0.5
-      image.style.transform = `translate3d(${x * -8}px, ${y * -6}px, 0) scale(1.025)`
+      image.style.transform = `translate3d(${x * -8}px, ${y * -6}px, 0) scale(0.78)`
     }
     const reset = () => {
       image.style.transform = ''

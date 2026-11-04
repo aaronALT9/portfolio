@@ -119,7 +119,13 @@ export default function CvPage() {
 
           <section>
             <Heading>Qualités</Heading>
-            <p className="text-neutral-700">Calme · Adaptable · Autonome</p>
+            <ul className="m-0 flex list-none flex-wrap gap-x-3 gap-y-1 p-0 text-neutral-700">
+              {['Calme', 'Adaptable', 'Autonome'].map((quality) => (
+                <li key={quality} className="font-medium text-neutral-800">
+                  {quality}
+                </li>
+              ))}
+            </ul>
           </section>
         </div>
       </div>

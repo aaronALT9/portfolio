@@ -49,6 +49,10 @@ const fr = {
     heading: 'Du code, du design, et un peu de musique.',
     strengthsLabel: 'Qualités',
     stampLabel: 'MMI / web',
+    columnParcours: 'Parcours',
+    columnPassions: 'Passions',
+    columnStrengths: 'Atouts',
+    interests: ['Musique', 'Japonais', 'Roblox', 'Design d’interface', 'Développement web'],
   },
   projects: {
     heading: 'Une sélection de travaux, scolaires et professionnels.',
@@ -176,6 +180,10 @@ const en: Dictionary = {
     heading: 'Code, design, and a bit of music.',
     strengthsLabel: 'Strengths',
     stampLabel: 'MMI / web',
+    columnParcours: 'Journey',
+    columnPassions: 'Passions',
+    columnStrengths: 'Strengths',
+    interests: ['Music', 'Japanese', 'Roblox', 'Interface design', 'Web development'],
   },
   projects: {
     heading: 'A selection of school and professional work.',

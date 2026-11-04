@@ -1,34 +1,9 @@
 import { Analytics } from '@vercel/analytics/next'
-import { Chakra_Petch, JetBrains_Mono, Manrope, Outfit } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import { Providers } from '@/components/providers'
 import { PortfolioEffects } from '@/components/portfolio-effects'
 import { siteUrl } from '@/lib/site'
 import './globals.css'
-
-const display = Outfit({
-  subsets: ['latin'],
-  weight: ['200', '300', '400'],
-  variable: '--font-display',
-})
-
-const tech = Chakra_Petch({
-  subsets: ['latin'],
-  weight: ['500', '600'],
-  variable: '--font-tech',
-})
-
-const body = Manrope({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-body',
-})
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-mono',
-})
 
 const title = 'Aaron Zerrouk — Développeur Web · Étudiant BUT MMI'
 const description =
@@ -78,11 +53,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="fr"
-      suppressHydrationWarning
-      className={`${display.variable} ${tech.variable} ${body.variable} ${mono.variable}`}
-    >
+    <html lang="fr" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <Providers>
           <PortfolioEffects />

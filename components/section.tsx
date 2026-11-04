@@ -21,7 +21,7 @@ export function Section({ id, index, label, heading, children, variant, classNam
       aria-labelledby={headingId}
       className={cn('section-shell border-t border-border/70 py-20 md:py-28', className)}
     >
-      <div className={cn('section-layout mx-auto max-w-6xl px-5 md:px-8', `section-layout-${variant}`)}>
+      <div className={cn('section-layout mx-auto max-w-[84rem] px-5 md:px-12', `section-layout-${variant}`)}>
         <header className="section-head">
           <div className="section-index">
             <span className="section-index-number">{String(index).padStart(2, '0')}</span>
