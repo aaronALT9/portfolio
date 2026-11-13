@@ -2,7 +2,9 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { buttonVariants } from '@/components/ui/button'
 import { useLocale } from '@/lib/i18n'
+import { profile } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 const enter = 'motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-700 motion-safe:fill-mode-both'
@@ -82,6 +84,23 @@ export function Hero() {
         <div className={cn('hero-intro', enter, 'motion-safe:delay-300')}>
           <p className="hero-availability">{ui.hero.availability}</p>
           <p>{ui.hero.pitch}</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <a
+              href={profile.cv}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(buttonVariants({ variant: 'outline', size: 'lg' }), 'h-10')}
+            >
+              {ui.hero.viewCv}
+            </a>
+            <a
+              href={profile.cv}
+              download
+              className={cn(buttonVariants({ size: 'lg' }), 'h-10')}
+            >
+              {ui.hero.cv}
+            </a>
+          </div>
         </div>
 
         <p className={cn('hero-animated-line', enter, 'motion-safe:delay-500')}>
