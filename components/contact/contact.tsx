@@ -3,6 +3,7 @@
 import { ArrowUpRightIcon } from 'lucide-react'
 import { ContactForm } from '@/components/contact/contact-form'
 import { CopyEmail } from '@/components/contact/copy-email'
+import { CvActions } from '@/components/cv-actions'
 import { GitHubIcon } from '@/components/icons'
 import { Section } from '@/components/section'
 import { useLocale } from '@/lib/i18n'
@@ -15,7 +16,10 @@ export function Contact() {
     <Section id="contact" index={6} label={ui.sections.contact} heading={ui.contact.heading} variant="contact">
       <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
         <div className="contact-panel reveal reveal-left space-y-8">
-          <p className="max-w-md leading-relaxed text-pretty text-muted-foreground">{ui.contact.pitch}</p>
+          <div>
+            <p className="max-w-md leading-relaxed text-pretty text-muted-foreground">{ui.contact.pitch}</p>
+            <CvActions className="mt-5" />
+          </div>
 
           <div className="space-y-2">
             <p className="font-mono text-[0.64rem] tracking-[0.18em] text-muted-foreground uppercase">{ui.contact.direct}</p>
