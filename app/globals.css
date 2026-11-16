@@ -1300,6 +1300,7 @@ textarea[data-slot='textarea'],
 
 .hero-stage {
   position: relative;
+  z-index: 2;
   isolation: isolate;
   min-height: 100svh;
   overflow: hidden;
@@ -1822,7 +1823,7 @@ textarea[data-slot='textarea'],
     .reveal {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 35%;
+      animation-range: cover 0% cover 100%;
     }
 
     .reveal.reveal-left {
@@ -1836,41 +1837,59 @@ textarea[data-slot='textarea'],
 }
 
 @keyframes reveal {
-  from {
+  0% {
     opacity: 0;
     filter: blur(8px);
     transform: translateY(1.25rem);
   }
-  to {
+  12%,
+  88% {
     opacity: 1;
     filter: blur(0);
     transform: none;
+  }
+  100% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(-1.25rem);
   }
 }
 
 @keyframes revealLeft {
-  from {
+  0% {
     opacity: 0;
     filter: blur(8px);
     transform: translateX(-1.5rem);
   }
-  to {
+  12%,
+  88% {
     opacity: 1;
     filter: blur(0);
     transform: none;
+  }
+  100% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateX(1.5rem);
   }
 }
 
 @keyframes revealScale {
-  from {
+  0% {
     opacity: 0;
     filter: blur(8px);
     transform: translateY(1rem) scale(0.96);
   }
-  to {
+  12%,
+  88% {
     opacity: 1;
     filter: blur(0);
     transform: none;
+  }
+  100% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(-1rem) scale(1.04);
   }
 }
 
